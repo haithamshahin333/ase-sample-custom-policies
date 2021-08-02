@@ -1,0 +1,25 @@
+{
+    "properties": {
+        "displayName": "AUDIT Container Web Apps - App Services",
+        "description": "audit non-compliance for container web apps on app services",
+        "mode": "All",
+        "parameters": {},
+        "policyRule": {
+            "if": {
+                "allOf": [
+                  {
+                    "field": "type",
+                    "equals": "Microsoft.Web/sites"
+                  },
+                  {
+                    "field": "kind",
+                    "contains": "container"
+                  }
+                ]
+              },
+            "then": {
+                "effect": "Deny"
+            }
+        }
+    }
+}
